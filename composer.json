@@ -1,5 +1,5 @@
 {
-  "name": "dpsoft/psr7PartialDownload",
+  "name": "dpsoft/psr7partial-download",
   "description": "Partial file download based on PSR-7",
   "authors": [
     {
