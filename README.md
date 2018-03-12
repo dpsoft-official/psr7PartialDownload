@@ -8,7 +8,7 @@ PSR-7 Partial file download package based on [HTTP 206 Partial Content In Node.j
 Install latest version using [composer](https://getcomposer.org/).
 
 ``` bash
-$ composer require dpsoft/psr7PartialDownload
+$ composer require dpsoft/psr7partial-download
 ```
 ### Usage
 ```php
