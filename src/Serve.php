@@ -94,7 +94,7 @@ class Serve
         $end = intval($matches[2]);
         $result = [
             'start' => empty($start) ? 0 : $start,
-            'end'   => empty($end) ? ($fileSize - 1) : $end
+            'end'   => empty($end) ? (empty($start) ? intdiv($fileSize, 20) : $fileSize - 1) : $end
         ];
 
         if (!empty($matches[1]) && empty($matches[2])) {
@@ -102,7 +102,7 @@ class Serve
             $result['end'] = $fileSize - 1;
         }
 
-        if ((empty($matches[1]) and $matches[1]!='0') && !empty($matches[2])) {
+        if ((empty($matches[1]) and $matches[1] != '0') && !empty($matches[2])) {
             $result['start'] = $fileSize - $end;
             $result['end'] = $fileSize - 1;
         }
