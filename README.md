@@ -14,11 +14,11 @@ $ composer require dpsoft/psr7PartialDownload
 ```php
 /** @var Psr\Http\Message\ServerRequestInterface */
 $request = ;
-/** Psr\Http\Message\ResponseInterface */
+/** @var Psr\Http\Message\ResponseInterface */
 $response = ;
  $serve = new Dpsoft\psr7PartialDownload\Serve($request,$response);
  
- /** Psr\Http\Message\ResponseInterface */
+ /** @var Psr\Http\Message\ResponseInterface */
  $response = $serve->download($filePath,$fileName);
 ```
 
