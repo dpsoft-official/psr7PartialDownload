@@ -69,7 +69,7 @@ class Serve
         $this->response = $this->response->withHeader('Cache-Control', 'no-cache');
         $stream = new LazyOpenStream($filePath, 'r');
         $stream->seek($start);
-        return $this->response->withBody(stream_for($stream->read($end - $start + 1)));
+        return $this->response->withBody(stream_for($stream->read($end - $start + 1)))->withStatus(216);
     }
 
     /**
