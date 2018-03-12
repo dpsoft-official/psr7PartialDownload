@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sadeghpm
- * Date: 3/12/18
- * Time: 2:43 PM
- */
 
 namespace Tests;
 
@@ -90,7 +84,6 @@ class ServeTest extends TestCase
         $response = $this->download->download($this->test_file, $this->test_file);
         self::assertEquals(10 - 0, $response->getHeaderLine('Content-Length'));
         self::assertEquals('est_file_c', (string)$response->getBody());
-
     }
 
     public function testDownloadWithZeroRange()
@@ -105,6 +98,7 @@ class ServeTest extends TestCase
         self::assertEquals('test_file_c', (string)$response->getBody());
 
     }
+
     public function testDownloadWithNoEndRange()
     {
         $this->request = ServerRequest::fromGlobals()->withHeader('range', 'bytes=10-');
@@ -117,6 +111,7 @@ class ServeTest extends TestCase
         self::assertEquals('content', (string)$response->getBody());
 
     }
+
     public function testDownloadWithNoStartRange()
     {
         $this->request = ServerRequest::fromGlobals()->withHeader('range', 'bytes=-10');
@@ -129,6 +124,7 @@ class ServeTest extends TestCase
         self::assertEquals('le_content', (string)$response->getBody());
 
     }
+
     public function testDownloadWithInvalidRange()
     {
         $this->request = ServerRequest::fromGlobals()->withHeader('range', 'bytes=12-32');
