@@ -82,7 +82,7 @@ class Serve
      */
     public function readRangeHeader(ServerRequestInterface $request, int $fileSize)
     {
-        $defaultRangeLength = 1024 * 512 ;
+        $defaultRangeLength = 1024 * 512;
         $range = $request->getHeaderLine('range');
         if (empty($range)) {
             return [];
@@ -101,7 +101,7 @@ class Serve
         if (!empty($matches[1]) && empty($matches[2])) {
             $suggestionLength = $start + $defaultRangeLength;
             $result['start'] = $start;
-            $result['end'] = $suggestionLength >= $fileSize ? $fileSize-1 : $suggestionLength;
+            $result['end'] = $suggestionLength >= $fileSize ? $fileSize - 1 : $suggestionLength;
         }
 
         if ((empty($matches[1]) and $matches[1] != '0') && !empty($matches[2])) {
