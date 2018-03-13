@@ -52,12 +52,12 @@ class ServeTest extends TestCase
 
     public function testReadRangeHeaderWithNoEndRange()
     {
-        $request = $this->request->withHeader('range', 'bytes=200-');
-        $requestRange = $this->download->readRangeHeader($request, 1001);
+        $request = $this->request->withHeader('range', 'bytes=327680-');
+        $requestRange = $this->download->readRangeHeader($request, 23262092);
         self::assertArrayHasKey('start', $requestRange);
-        self::assertEquals(200, $requestRange['start']);
+        self::assertEquals(327680, $requestRange['start']);
         self::assertArrayHasKey('end', $requestRange);
-        self::assertEquals(1000, $requestRange['end']);
+        self::assertEquals(851968, $requestRange['end']);
     }
 
     public function testReadRangeHeaderWithNoStartRange()
@@ -111,7 +111,6 @@ class ServeTest extends TestCase
         self::assertEquals('content', (string)$response->getBody());
 
     }
-
     public function testDownloadWithNoStartRange()
     {
         $this->request = ServerRequest::fromGlobals()->withHeader('range', 'bytes=-10');
